@@ -42,22 +42,38 @@ class Solution {
 
      int left = 0;
         int right = height.length - 1;
-        int leftMax = height[left];
-        int rightMax = height[right];
+        // int leftMax = height[left];
+        // int rightMax = height[right];
         int water = 0;
 
-        while (left < right) {
-            if (leftMax < rightMax) {
-                left++;
-                leftMax = Math.max(leftMax, height[left]);
-                water += leftMax - height[left];
-            } else {
-                right--;
-                rightMax = Math.max(rightMax, height[right]);
-                water += rightMax - height[right];
-            }
+    //     while (left < right) {
+    //         if (leftMax < rightMax) {
+    //             left++;
+    //             leftMax = Math.max(leftMax, height[left]);
+    //             water += leftMax - height[left];
+    //         } else {
+    //             right--;
+    //             rightMax = Math.max(rightMax, height[right]);
+    //             water += rightMax - height[right];
+    //         }
          
-      }
-      return water;
+    //   }
+    //   return water;
+        int leftMax = 0;
+        int rightMax = 0;
+        while(left < right){
+            leftMax = Math.max(leftMax,height[left]);
+            rightMax = Math.max(rightMax,height[right]);
+
+            if(leftMax < rightMax){
+                water = water + (leftMax - height[left]);
+                left++;
+            }
+            else{
+                water = water + (rightMax-height[right]);
+                right--;
+            }
+        }
+       return water;
     }
 }
