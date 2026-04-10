@@ -9,7 +9,7 @@ class Solution {
       for(int r=0; r<nums.length; r++){
         map.put(nums[r], map.getOrDefault(nums[r],0)+1);
         while(map.size()>k){
-            map.put(nums[left], map.get(nums[left])-1);
+            map.put(nums[left],map.get(nums[left])-1);
             if(map.get(nums[left]) == 0){
                 map.remove(nums[left]);
             }
