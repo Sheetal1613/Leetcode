@@ -11,9 +11,7 @@ class Solution {
             while((right-left+1) - max_frq > k){
                 char left_ch = s.charAt(left);
                 map.put(left_ch,map.get(left_ch)-1);
-                if(map.size() == 0){
-                    map.remove(ch);
-                }
+               
                 left++;
             }
             longest = Math.max(longest, right-left+1);
