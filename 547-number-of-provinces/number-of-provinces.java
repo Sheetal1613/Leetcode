@@ -14,9 +14,10 @@ class Solution {
 
     private void bfs(int i, boolean[] vis, int[][]adj){
     Queue<Integer> q = new LinkedList<>();
-    vis[i] = true;
+    //vis[i] = true;
     int n = adj.length;
     q.add(i);
+    vis[i] = true;
     while(q.size() > 0){
     int front = q.remove();
     for(int j=0; j<n; j++){
