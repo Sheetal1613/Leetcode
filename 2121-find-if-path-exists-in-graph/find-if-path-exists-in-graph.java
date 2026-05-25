@@ -15,10 +15,10 @@ class Solution {
            adj.get(a).add(b);
            adj.get(b).add(a);
         }
-        bfs(source, adj, vis);
+        bfs(source, adj, vis, destination);
         return vis[destination];
     }
-      private void bfs(int source, List<List<Integer>> adj, boolean[] vis){
+      private void bfs(int source, List<List<Integer>> adj, boolean[] vis, int destination){
         Queue<Integer> q = new LinkedList<>();
         q.add(source);
         while(!q.isEmpty()){
@@ -27,6 +27,9 @@ class Solution {
                 if(vis[val] == false){
                     q.add(val);
                     vis[val] = true;
+                    if(val == destination){
+                        return;
+                    }
                 }
             }
         }
